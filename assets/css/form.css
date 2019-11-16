@@ -1,0 +1,100 @@
+.form .form-control {
+    background-color: #F4F3F3;
+    border-style: none;
+    border-radius: 3px;
+}
+
+.form textarea.form-control {
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 120px;
+}
+
+.form .form-control:focus {
+    box-shadow: 0 0 0 0.2rem rgba(77, 90, 255, 0.4);
+}
+
+.custom-control-label {
+    padding-left: 5px;
+    padding-top: 2px;
+}
+
+.custom-control-label::before {
+    border: 2px solid #4d5aff;
+    height: 20px;
+    width: 20px;
+}
+
+.custom-control-label::after {
+    background-size: 100%;
+    top: 0.55em;
+    left: -1.14em;
+    border-radius: 1000px;
+    background-repeat: no-repeat;
+}
+
+.custom-control-input:checked~.custom-control-label::before {
+    border-color: #4d5aff;
+    background-color: #4d5aff;
+    outline: none;
+}
+
+.custom-control-input:focus~.custom-control-label::before,
+.custom-control-input:checked~.custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(77, 90, 255, 0.25);
+    border-color: #4d5aff;
+}
+
+.form textarea.textarea-sm {
+    min-height: auto;
+}
+
+.form-borderless .form-control {
+    background-color: white;
+    border-style: solid;
+}
+
+.form .input-auto {
+    height: auto;
+}
+
+.btn-rectangle {
+    border-radius: 2px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #707070;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.form .btn-group label {
+    color: #96c93d;
+    border-color: #96c93d;
+    background: none;
+}
+
+.form .btn-group input {
+}
+
+.custom-radio label {
+    cursor: pointer;
+}
+
+.btn-brand .spinner-border {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    position: relative;
+    top: 2px;
+    display: none;
+}
+
+.custom-checkbox label {
+    cursor: pointer;
+}
+
+.textarea-lg {
+    min-height: 300px !important;
+}

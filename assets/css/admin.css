@@ -1,0 +1,491 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800');
+
+@keyframes uploading {
+    to {
+        opacity: 0.8;
+    }
+}
+
+body {
+    font-family: Montserrat;
+    font-size: 16px;
+    color: #393838;
+}
+
+.container-fluid {
+    max-width: 1200px;
+}
+
+.card-body {
+    padding: 0px;
+}
+
+.bg-grey {
+    background-color: #f5f6f7;
+}
+
+.left-panel {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.14);
+    overflow-y: auto;
+    width: 280px;
+    overflow: auto;
+    transition: left 400ms;
+    z-index: 20;
+    padding: 60px 15px 30px;
+}
+
+.profile-image {
+    border-radius: 100%;
+    max-width: 60px;
+    width: 100%;
+}
+
+.left-panel-profile-name {
+    font-size: 12px;
+    margin-bottom: 2px;
+    line-height: 15px;
+    color: #4b4b4b;
+    text-transform: capitalize;
+}
+
+.transition {
+    transition: 400ms;
+}
+
+.left-panel ul {
+    margin-top: 70px;
+    margin-bottom: 100px;
+}
+
+.left-panel ul a {
+    padding: 5px 0px 5px 10px;
+    display: inline-block;
+    width: 100%;
+    font-size: 13px;
+    position: relative;
+    top: -3px;
+    text-transform: capitalize;
+    color: inherit;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.left-panel li.active .fas {
+    color: #4d5aff;
+}
+
+.left-panel-email {
+    font-size: 11px;
+    margin-bottom: -2px;
+    opacity: 0.7;
+    padding-top: 2px;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    text-align: center;
+    font-size: 8px;
+    color: #919493;
+    font-weight: bold;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
+}
+
+.right-panel {
+    min-height: 100vh;
+    padding: 50px 30px 30px;
+    margin-left: 270px;
+}
+
+.header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.card {
+    border: none;
+}
+
+.shadow-raised {
+    box-shadow: 0px 8px 20px #e3e7ea;
+}
+
+.school-box {
+    padding-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.school-cover-image {
+    width: 100%;
+}
+
+.school-badge {
+    width: 50px;
+    margin-top: -30px;
+    margin-left: 20px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+.school-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-brand {
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: #4d5aff;
+    font-weight: bold;
+    position: relative;
+    transition: all 300ms;
+    display: inline-block;
+    text-align: center;
+    background-color: rgba(77, 90, 255, 0.26);
+}
+
+.btn-brand:hover {
+    color: #4d5aff;
+    text-decoration: none ;
+    transform: translateY(-2px);
+}
+
+.header {
+    color: #505050;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: white;
+    position: fixed;
+    z-index: 10;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.01);
+}
+
+.text-md {
+    font-size: 15px;
+}
+
+.school-box-content {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 20px;
+}
+
+.ml-20 {
+    margin-left: 20px;
+}
+
+.mr-20 {
+    margin-right: 20px;
+}
+
+.left-content {
+}
+
+@media (max-width:991px) {
+    .left-panel {
+        left: -280px;
+    }
+}
+
+@media (max-width:991px) {
+    .right-panel {
+        margin-left: 0px;
+        padding: 0px;
+    }
+}
+
+@media (min-width:992px) {
+    .header {
+        left: 280px;
+        padding-left: 20px;
+    }
+}
+
+.right-panel .right-body {
+    padding-top: 100px;
+}
+
+.btn-menu {
+    padding: 0px;
+    width: 40px;
+    margin-right: 20px;
+    display: none;
+}
+
+.btn-menu span {
+    display: block;
+    height: 3px;
+    background-color: #4d5aff;
+}
+
+@media (max-width:991px) {
+    .btn-menu {
+        display: inline-block;
+    }
+}
+
+.hidden-menu .left-panel {
+    left: 0px;
+}
+
+.hidden-menu .backdrop {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.69);
+    z-index: 8;
+}
+
+.btn-back {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.text-brand {
+    color: #4d5aff;
+}
+
+@media (min-width:992px) {
+    .left-panel .btn-back {
+        display: none;
+    }
+}
+
+button {
+    border: none;
+}
+
+btn-curved {
+    border-radius: 80px;
+}
+
+.btn-curved {
+    border-radius: 80px;
+}
+
+.form-box {
+    background-color: white;
+}
+
+.text-sm {
+    font-size: 12px;
+}
+
+.uploading {
+    animation: uploading 600ms linear 0s infinite alternate;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.form-section {
+}
+
+.form-section-heding {
+    margin-bottom: 30px;
+}
+
+.form-section-heading h4 {
+    font-weight: bolder;
+    font-size: 15px;
+    color: #555765;
+}
+
+.form-section-heading p {
+    color: rgba(71, 80, 94, .55);
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.form-section .row {
+    border-bottom: 1px solid #dbdbdb;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+
+.form-section .btn-grouped {
+    border-top: 1px solid #eeeeee;
+    margin-top: 50px;
+}
+
+.btn-brand-bordered,
+.btn-brand-bordered:hover {
+    background: none;
+    border: 1px solid #00b09b;
+    color: #00b09b;
+}
+
+.card-column-2 {
+    column-count: 2;
+}
+
+button:focus {
+}
+
+.school-logo {
+    max-width: 200px !important;
+}
+
+.form-section .row:last-child {
+    border: none;
+}
+
+.img-max-300 {
+    max-width: 220px;
+}
+
+.empty-data-title {
+    font-weight: bold;
+    font-size: 21px;
+    color: #292c44;
+}
+
+.empty-data-description {
+    color: #676d73;
+    font-size: 15px;
+}
+
+.max-width-500 {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.uploading::before {
+    background-color: rgba(0, 0, 0, 0.7);
+    content: "";
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    position: absolute;
+}
+
+.uploading .spinner-border {
+    position: absolute;
+    z-index: 3;
+    left: 35px;
+    top: 30px;
+}
+
+.left-divider {
+    height: 1px;
+    background: #efefef;
+    margin: -10px -20px 20px -60px;
+}
+
+.left-panel ul li.active::before {
+    opacity: 1;
+    width: 4px;
+}
+
+.left-panel li .fas {
+    top: 7px;
+}
+
+.left-panel li {
+    transition: all 100ms;
+}
+
+.left-panel li.active {
+    color: #4d5aff;
+}
+
+.left-panel li.active::after {
+    width: 70px;
+    opacity: 1;
+}
+
+.left-panel li::before {
+    left: -55px;
+    background-color: #4d5aff;
+}
+
+.left-panel li::after {
+    left: -60px;
+}
+
+.left-panel li::before,
+.left-panel li::after {
+    content: "";
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    opacity: 0;
+    width: 0px;
+    transition: all 300ms;
+}
+
+.left-panel .drop {
+    background-color: #12192c;
+}
+
+.setup {
+    display: flex;
+    flex-direction: column;
+    padding: 50px 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width:992px) {
+    .right-panel .right-body {
+        padding-top: 50px;
+    }
+}
+
+.btn-action {
+    font-weight: bold;
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+.btn-action:hover {
+    transform: translateY(-2px);
+}
+
+.table .td-actions {
+    padding-left: 5px;
+    padding-right: 5px;
+    min-width: 90px;
+    max-width: 90px;
+}
+
+.table {
+    font-size: 15px;
+}
+
+.backbutton span.w-50:last-child {
+    transform: rotate(45deg);
+    left: -2px;
+    top: 1px;
+    height: 2px;
+}
+
+.backbutton span.w-50:first-child {
+    height: 2px;
+    transform: rotate(-45deg);
+    left: -2px;
+    top: -1px;
+}
