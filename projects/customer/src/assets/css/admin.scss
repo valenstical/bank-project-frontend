@@ -14,10 +14,12 @@ body {
   max-width: 1200px;
 }
 
-.card-body {
-  padding: 0px;
+.pointer {
+  cursor: pointer;
 }
-
+.left-panel li a:hover {
+  text-decoration: underline !important;
+}
 .bg-grey {
   background-color: #f5f6f7;
 }

@@ -1,0 +1,52 @@
+<aside class="left-panel d-flex flex-column">
+  <button type="button" class="btn btn-back text-light" onclick="toggleMenu()">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+  <div class="left-content flex-grow-1">
+    <div class="left-panel-profile text-center">
+      <img class="profile-image" src="assets/images/icons/profile.jpg" />
+      <h4 class="font-weight-bold left-panel-profile-name mt-2">
+        Christopher Eghe
+      </h4>
+      <p class="left-panel-email">Account No. <span>0040955985</span></p>
+    </div>
+    <ul class="fa-ul">
+      <li routerLinkActive="active">
+        <i class="fas fa-li transitio fa-chart-line"></i>
+        <a routerLink="/portal/statement" class="transition"
+          >Account Statement</a
+        >
+      </li>
+      <li routerLinkActive="active">
+        <i class="fas fa-li transitio fa-exchange-alt"></i>
+        <a routerLink="/portal/fund-transfer" class="transition"
+          >Fund Transfer</a
+        >
+      </li>
+      <li routerLinkActive="active">
+        <i class="fas fa-li transitio fa-id-badge"></i>
+        <a routerLink="/portal/profile" class="transition">My Profile</a>
+      </li>
+      <li routerLinkActive="active">
+        <i class="fas fa-li transitio fa-key"></i>
+        <a routerLink="/portal/change-password" class="transition"
+          >Change Password</a
+        >
+      </li>
+      <li routerLinkActive="active">
+        <i class="fas fa-li transitio fa-user-lock"></i>
+        <a routerLink="/portal/change-pin" class="transition">Change Pin</a>
+      </li>
+      <li>
+        <i class="fas fa-li transitio fa-sign-in-alt"></i>
+        <a (click)="logout()" class="transition pointer">Logout</a>
+      </li>
+    </ul>
+  </div>
+  <div class="mt-5 text-center">
+    <img src="assets/images/icons/icon-light.png" width="40" class="mb-2" />
+    <p class="text-center text-sm mb-0 text-white-50">
+      &copy; Mr. Chris Eghe Bank
+    </p>
+  </div>
+</aside>
