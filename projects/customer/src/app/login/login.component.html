@@ -21,13 +21,20 @@
             role="form"
             class="login-form"
             [formGroup]="formGroup"
-            (submit)="login()"
+            (submit)="handleLogin()"
+            #topElement
           >
             <img
               src="assets/images/icons/icon.png"
               width="60"
               class="mb-4 d-none d-sm-inline-block"
             />
+            <lib-alert
+              [type]="response.type"
+              [title]="response.title"
+              [message]="response.message"
+              *ngIf="!hideAlert"
+            ></lib-alert>
             <lib-input
               title="Account Number"
               name="accountNumber"

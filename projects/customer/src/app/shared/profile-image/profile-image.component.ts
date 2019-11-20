@@ -7,7 +7,7 @@ import { BaseComponent } from "ng-valibrary";
   templateUrl: "./profile-image.component.html"
 })
 export class ProfileImageComponent extends BaseComponent {
-  public src = this.store.get("user").image;
+  @Input() src = this.store.get("user").image;
 
   constructor(public store: Store) {
     super();

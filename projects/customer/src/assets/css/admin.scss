@@ -97,7 +97,7 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
-:disabled {
+button:disabled {
   cursor: not-allowed;
   opacity: 0.35 !important;
 }

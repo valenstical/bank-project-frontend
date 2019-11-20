@@ -80,12 +80,11 @@
 }
 
 .btn-brand .spinner-border {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   margin-left: 15px;
   position: relative;
-  top: 2px;
-  display: none;
+  top: 1px;
 }
 
 .custom-checkbox label {
@@ -94,4 +93,11 @@
 
 .textarea-lg {
   min-height: 120px !important;
+}
+
+.alert li:last-child {
+  margin-bottom: 0 !important;
+}
+.alert {
+  font-size: 13px;
 }
