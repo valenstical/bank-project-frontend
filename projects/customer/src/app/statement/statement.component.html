@@ -1,5 +1,7 @@
 <small class="text-sm">Good morning,</small>
-<h2 class="greeting font-weight-bold text-capitalize">Christopher Eghe</h2>
+<h2 class="greeting font-weight-bold text-capitalize">
+  {{ user.firstname }} {{ user.lastname }}
+</h2>
 <div class="row mt-5">
   <div class="col-sm-6 col-xl-4">
     <app-summary-box

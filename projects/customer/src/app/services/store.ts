@@ -27,7 +27,9 @@ export class Store {
     },
     bankName: BANK_NAME,
     header: "Statement",
-    user: {},
+    user: {
+      image: "assets/images/icons/profile.jpg"
+    },
     menu: {
       nav: false,
       receipt: false

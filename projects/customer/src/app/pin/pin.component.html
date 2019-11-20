@@ -5,7 +5,14 @@
   class="bg-white wrapper ml-auto mr-auto"
   (submit)="saveChanges()"
   [formGroup]="formGroup"
+  #topElement
 >
+  <lib-alert
+    [type]="response.type"
+    [title]="response.title"
+    [message]="response.message"
+    *ngIf="!hideAlert"
+  ></lib-alert>
   <div class="row mt-3">
     <div class="col-md-6">
       <lib-input
