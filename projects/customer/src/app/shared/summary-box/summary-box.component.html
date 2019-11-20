@@ -1,0 +1,28 @@
+<ng-container *ngIf="type; else balanceTemplate">
+  <div class="summary position-relative text-body bg-white">
+    <div class="transaction-badge text-center transaction-badge-green" [class.transaction-badge-red]="isDebit()">
+      <i class="fas fa-arrow-down" [class.fa-arrow-up]="isDebit()"></i>
+    </div>
+    <div class="ml-4 pl-3">
+      <h4 class="summary-title">{{ getTitle() }}</h4>
+      <h5 class="summary-amount font-weight-bold">
+        <span [innerHTML]="store.get('currency')"></span> {{ amount | number }}
+      </h5>
+      <small class="summary-count d-inline-block mt-3">{{ transactions | number }} Transactions</small>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #balanceTemplate>
+  <div class="summary position-relative bg-brand text-white">
+    <div>
+      <h4 class="summary-title">Account Balance</h4>
+      <h5 class="summary-amount font-weight-bold balance">
+        <a routerLink="/portal/fund-transfer" class="float-right mr-n2 text-white-50 transition"
+          title="Transfer Fund"><i class="fas fa-exchange-alt"></i></a><span [innerHTML]="store.get('currency')"></span>
+        {{ amount | number }}
+      </h5>
+      <small class="summary-count d-inline-block mt-3">{{ transactions | number }} Transactions</small>
+    </div>
+  </div>
+</ng-template>

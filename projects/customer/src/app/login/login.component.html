@@ -1,0 +1,60 @@
+<main
+  class="d-flex justify-content-center align-items-center min-vh-100 login-cover position-relative "
+>
+  <div class="container-fluid mt-3 mb-3">
+    <div class="bg-white wrapper ml-auto mr-auto">
+      <div class="row">
+        <div class="col-sm-6">
+          <div
+            class="welcome d-flex align-items-center h-100 position-relative justify-content-start"
+          >
+            <div class="position-relative">
+              <h4>WELCOME TO</h4>
+              <h1 class="font-weight-bold position-relative mb-0">
+                {{ bankName }}
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 order-sm-first">
+          <form
+            role="form"
+            class="login-form"
+            [formGroup]="formGroup"
+            (submit)="login()"
+          >
+            <img
+              src="assets/images/icons/icon.png"
+              width="60"
+              class="mb-4 d-none d-sm-inline-block"
+            />
+            <lib-input
+              title="Account Number"
+              name="accountNumber"
+              invalidText="Account number is required"
+              [formGroup]="formGroup"
+            ></lib-input>
+            <lib-input
+              title="Password"
+              name="password"
+              type="password"
+              invalidText="Password is required"
+              [formGroup]="formGroup"
+            ></lib-input>
+            <lib-button
+              className="login-btn btn text-white font-weight-bold mt-4"
+              [disabled]="isBusy || formGroup.invalid"
+              [showLoader]="isBusy"
+              text="LOGIN"
+              [maxWidth]="true"
+            ></lib-button>
+            <p class="register-text mt-4 text-center">
+              Don't have an account yet?
+              <a routerLink="/register">Create account</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

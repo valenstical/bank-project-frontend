@@ -1,0 +1,118 @@
+<h2 class="greeting font-weight-bold text-capitalize d-lg-block d-none mb-5">
+  My Profile
+</h2>
+<div class="bg-white wrapper ml-auto mr-auto">
+  <app-profile-image></app-profile-image>
+
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <lib-input
+        title="First Name"
+        name="firstname"
+        invalidText="First name is required"
+        [formGroup]="formGroup"
+      ></lib-input>
+    </div>
+    <div class="col-md-6">
+      <lib-input
+        title="Last Name"
+        name="lastname"
+        invalidText="Last name is required"
+        [formGroup]="formGroup"
+      ></lib-input>
+    </div>
+    <div class="col-md-6">
+      <lib-input
+        title="Date of birth"
+        name="dob"
+        invalidText="Date of birth is required"
+        [formGroup]="formGroup"
+        type="date"
+      ></lib-input>
+    </div>
+    <div class="col-md-6">
+      <lib-select
+        [data]="genders"
+        title="Gender"
+        [formGroup]="formGroup"
+        name="gender"
+        invalidText="Gender is required"
+      ></lib-select>
+    </div>
+    <div class="col-md-6">
+      <lib-input
+        title="Email"
+        name="email"
+        invalidText="Email is required"
+        [formGroup]="formGroup"
+        type="email"
+      ></lib-input>
+    </div>
+    <div class="col-md-6">
+      <lib-input
+        title="Phone"
+        name="phone"
+        invalidText="Phone number is required"
+        [formGroup]="formGroup"
+        type="tel"
+      ></lib-input>
+    </div>
+    <div class="col-md-6">
+      <lib-select
+        [data]="identificationTypes"
+        title="Type of Identification"
+        [formGroup]="formGroup"
+        name="identificationType"
+        invalidText="Identificatin type is required"
+      ></lib-select>
+    </div>
+    <div class="col-md-6">
+      <lib-input
+        title="Identification Number"
+        name="identificationNumber"
+        invalidText="Identification number is required"
+        [formGroup]="formGroup"
+      ></lib-input>
+    </div>
+  </div>
+</div>
+<div class="bg-white wrapper ml-auto mr-auto mt-1">
+  <div class="row mt-3">
+    <div class="col-md-6">
+      <lib-input
+        title="Address"
+        name="address"
+        invalidText="Address is required"
+        [formGroup]="formGroup"
+      ></lib-input>
+    </div>
+    <div class="col-md-6">
+      <lib-input
+        title="City"
+        name="city"
+        invalidText="City is required"
+        [formGroup]="formGroup"
+      ></lib-input>
+    </div>
+    <div class="col-md-6">
+      <lib-select
+        [data]="states"
+        title="State"
+        [formGroup]="formGroup"
+        name="stateId"
+        invalidText="State is required"
+      ></lib-select>
+    </div>
+    <div class="col-md-6">
+      <lib-input title="Zip" name="zip" [formGroup]="formGroup"></lib-input>
+    </div>
+  </div>
+  <div class="pl-2 pr-2 ml-0 mr-0 pb-0 pt-0 text-right">
+    <lib-button
+      className="login-btn btn text-white font-weight-bold mt-4"
+      [disabled]="isBusy || formGroup.invalid"
+      [showLoader]="isBusy"
+      text="SAVE CHANGES"
+    ></lib-button>
+  </div>
+</div>

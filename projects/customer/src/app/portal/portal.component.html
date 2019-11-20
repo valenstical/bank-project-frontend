@@ -1,0 +1,17 @@
+<main
+  class="min-vh-100 bg-grey"
+  [class.hidden-receipt]="store.get('menu').receipt"
+  [class.hidden-menu]="store.get('menu').nav"
+>
+  <app-navigation></app-navigation>
+  <aside class="right-panel">
+    <section class="right-body">
+      <app-header></app-header>
+      <div class="container-fluid">
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+  </aside>
+  <div class="backdrop d-lg-none transition" (click)="store.hideMenus()"></div>
+  <div class="receipt-backdrop transition" (click)="store.hideMenus()"></div>
+</main>

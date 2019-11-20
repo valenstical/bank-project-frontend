@@ -1,0 +1,144 @@
+<small class="text-sm">Good morning,</small>
+<h2 class="greeting font-weight-bold text-capitalize">Christopher Eghe</h2>
+<div class="row mt-5">
+  <div class="col-sm-6 col-xl-4">
+    <app-summary-box
+      [amount]="summary.balance.total"
+      [transactions]="summary.balance.count"
+    ></app-summary-box>
+  </div>
+  <div class="col-sm-6 col-xl-4">
+    <app-summary-box
+      [amount]="summary.credits.total"
+      [transactions]="summary.debits.count"
+      type="credit"
+    ></app-summary-box>
+  </div>
+
+  <div class="col-sm-6 col-xl-4">
+    <app-summary-box
+      [amount]="summary.credits.total"
+      [transactions]="summary.credits.count"
+      type="debit"
+    ></app-summary-box>
+  </div>
+</div>
+<div class="mt-5 mb-3 pt-4">
+  <h4 class="text-sm text-uppercase font-weight-bold text-muted d-inline-block">
+    Transactions
+  </h4>
+  <app-dropdown-transactions></app-dropdown-transactions>
+</div>
+<div class="mt-0 summary bg-white">
+  <div class="table-responsive">
+    <table class="table mt-0 table-borderless">
+      <thead class="table-header text-uppercase text-muted">
+        <tr>
+          <th>Date</th>
+          <th>Description</th>
+          <th>Amount</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="text-muted">
+        <tr class="transition">
+          <td class="align-middle text-nowrap">Jul 23, 2019</td>
+          <td class="position-relative align-middle text-nowrap">
+            <span class="d-block text-body">
+              Debit transfer to Mark Nnamdi (0023455069) </span
+            ><small class="text-secondary">TX09484793373</small>
+          </td>
+          <td class="font-weight-bold text-danger align-middle text-nowrap">
+            -&#8358; 50,000
+          </td>
+          <td class="font-weight-bold text-danger align-middle">
+            <a
+              class="btn btn-sm btn-outline-secondary"
+              routerLink="/portal/statement/343434"
+              >Receipt</a
+            >
+          </td>
+        </tr>
+        <tr class="transition">
+          <td class="align-middle text-nowrap">Jul 23, 2019</td>
+          <td class="position-relative align-middle">
+            <span class="text-dark d-block">
+              Credit transfer to Mark Nnamdi Azikwe II of Onitsha land
+              (0023455069) </span
+            ><small>TX09484793373</small>
+          </td>
+          <td class="font-weight-bold text-success align-middle text-nowrap">
+            +&#8358; 50,000
+          </td>
+          <td class="font-weight-bold text-danger align-middle">
+            <button class="btn btn-sm btn-outline-secondary" href="#!">
+              Receipt
+            </button>
+          </td>
+        </tr>
+        <tr class="transition">
+          <td class="align-middle text-nowrap">Jul 23, 2019</td>
+          <td class="position-relative align-middle">
+            <span class="text-dark d-block">
+              Debit transfer to Mark Nnamdi (0023455069) </span
+            ><small>TX09484793373</small>
+          </td>
+          <td class="font-weight-bold text-success align-middle text-nowrap">
+            +&#8358; 50,000
+          </td>
+          <td class="font-weight-bold text-danger align-middle">
+            <a class="btn btn-sm btn-outline-secondary" href="#!">Receipt</a>
+          </td>
+        </tr>
+        <tr class="transition">
+          <td class="align-middle text-nowrap">Jul 23, 2019</td>
+          <td class="position-relative align-middle">
+            <span class="text-dark d-block">
+              Debit transfer to Mark Nnamdi (0023455069) </span
+            ><small>TX09484793373</small>
+          </td>
+          <td class="font-weight-bold text-danger align-middle text-nowrap">
+            -&#8358; 50,000
+          </td>
+          <td class="font-weight-bold text-danger align-middle">
+            <a class="btn btn-sm btn-outline-secondary" href="#!">Receipt</a>
+          </td>
+        </tr>
+        <tr class="transition">
+          <td class="align-middle text-nowrap">Jul 23, 2019</td>
+          <td class="position-relative align-middle">
+            <span class="text-dark d-block">
+              Debit transfer to Mark Nnamdi (0023455069) </span
+            ><small>TX09484793373</small>
+          </td>
+          <td class="font-weight-bold text-success align-middle text-nowrap">
+            +&#8358; 50,000
+          </td>
+          <td class="font-weight-bold text-danger align-middle">
+            <a class="btn btn-sm btn-outline-secondary" href="#!">Receipt</a>
+          </td>
+        </tr>
+        <tr class="transition">
+          <td class="align-middle text-nowrap">Jul 23, 2019</td>
+          <td class="position-relative align-middle">
+            <span class="text-dark d-block">
+              Debit transfer to Mark Nnamdi (0023455069) </span
+            ><small>TX09484793373</small>
+          </td>
+          <td class="font-weight-bold text-danger align-middle text-nowrap">
+            -&#8358; 50,000
+          </td>
+          <td class="font-weight-bold text-danger align-middle">
+            <button
+              class="btn btn-sm btn-outline-secondary"
+              (click)="showReceipt(null)"
+            >
+              Receipt
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-receipt [transaction]="selectedTransaction"></app-receipt>

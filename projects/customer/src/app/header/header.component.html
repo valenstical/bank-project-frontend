@@ -1,0 +1,14 @@
+<header class="header bg-grey">
+  <div class="container-fluid">
+    <button
+      class="btn-menu btn btn-link"
+      type="button"
+      (click)="store.toggleMenu('nav')"
+    >
+      <span></span>
+      <span class="mt-1 w-75"></span>
+      <span class="mt-1"></span>
+    </button>
+    <h1 class="mb-0 d-inline-block">{{ store.get("header") }}</h1>
+  </div>
+</header>

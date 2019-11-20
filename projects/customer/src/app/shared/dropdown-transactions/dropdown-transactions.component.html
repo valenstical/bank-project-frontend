@@ -1,0 +1,25 @@
+<div class="dropdown float-right">
+  <button
+    class="btn dropdown-toggle btn-sm text-dark"
+    type="button"
+    (click)="toggleDropdownMenu($event)"
+  >
+    {{ title }}
+  </button>
+  <div
+    class="dropdown-menu dropdown-menu-right text-sm"
+    [class.d-block]="isDropdownOpen()"
+  >
+    <a
+      class="dropdown-item pointer"
+      (click)="handleItemSelection(defaultType)"
+      >{{ defaultType.text }}</a
+    >
+    <a
+      class="dropdown-item pointer"
+      *ngFor="let type of types"
+      (click)="handleItemSelection(type)"
+      >{{ type.text }}s</a
+    >
+  </div>
+</div>
