@@ -101,6 +101,11 @@ button:disabled {
   cursor: not-allowed;
   opacity: 0.35 !important;
 }
+.text-sentence::first-letter,
+.error-text::first-letter {
+  text-transform: uppercase;
+}
+
 .header {
   color: #505050;
   padding-top: 20px;

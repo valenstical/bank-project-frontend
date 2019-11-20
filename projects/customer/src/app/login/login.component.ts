@@ -59,6 +59,7 @@ export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
             "success"
           );
           this.authService.setAuthenticatedUser(data);
+          this.store.set("user", this.authService.getAuthenticatedUser());
           this.router.navigateByUrl(this.portalUrl);
         },
         error => {
