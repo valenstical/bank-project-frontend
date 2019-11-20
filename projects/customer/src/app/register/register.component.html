@@ -1,175 +1,189 @@
 <main
   class="d-flex justify-content-center align-items-center min-vh-100 login-cover position-relative "
-  data-pg-collapsed
 >
   <form class="container-fluid mt-4 mb-4" action="statement.html">
     <div class="bg-white wrapper ml-auto mr-auto">
       <div
         class="welcome d-flex align-items-center h-100 position-relative justify-content-start register-header"
-        data-pg-collapsed
       >
         <div class="position-relative">
           <h1 class="font-weight-bold mb-0 position-relative hidden-line">
-            Mr. Chris Eghe Bank
+            {{ bankName }}
           </h1>
           <h4 class="mt-1 text-uppercase">Online Account Registration</h4>
         </div>
       </div>
-      <div class="row mt-5" data-pg-collapsed>
+      <div class="mt-5">
+        <app-profile-image></app-profile-image>
+      </div>
+
+      <div class="row mt-5">
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputEmail1">First name</label>
-            <input type="text" class="form-control" name="username" />
-          </div>
+          <lib-input
+            title="First Name"
+            name="firstname"
+            invalidText="First name is required"
+            [formGroup]="formGroup"
+          ></lib-input>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Last name</label>
-            <input type="text" class="form-control" name="username" />
-          </div>
+          <lib-input
+            title="Last Name"
+            name="lastname"
+            invalidText="Last name is required"
+            [formGroup]="formGroup"
+          ></lib-input>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Date of birth</label>
-            <input type="date" class="form-control" name="username" />
-          </div>
+          <lib-input
+            title="Date of birth"
+            name="dob"
+            invalidText="Date of birth is required"
+            [formGroup]="formGroup"
+            type="date"
+          ></lib-input>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Gender</label>
-            <select class="form-control custom-select">
-              <option>-- Choose one --</option>
-              <option>Male</option>
-              <option>Female</option>
-            </select>
-          </div>
+          <lib-select
+            [data]="genders"
+            title="Gender"
+            [formGroup]="formGroup"
+            name="gender"
+            invalidText="Gender is required"
+          ></lib-select>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              id="exampleInputPassword1"
-            />
-          </div>
+          <lib-input
+            title="Email"
+            name="email"
+            invalidText="Email is required"
+            [formGroup]="formGroup"
+            type="email"
+          ></lib-input>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Phone</label>
-            <input
-              type="text"
-              class="form-control"
-              id="exampleInputPassword1"
-            />
-          </div>
+          <lib-input
+            title="Phone"
+            name="phone"
+            invalidText="Phone number is required"
+            [formGroup]="formGroup"
+            type="tel"
+          ></lib-input>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Type of Identification</label>
-            <select class="form-control custom-select">
-              <option>-- Choose one --</option>
-              <option>Voters Card</option>
-              <option>Driver's Licence</option>
-              <option>NIMC</option>
-              <option>BVN</option>
-            </select>
-          </div>
+          <lib-select
+            [data]="identificationTypes"
+            title="Type of Identification"
+            [formGroup]="formGroup"
+            name="identificationType"
+            invalidText="Identificatin type is required"
+          ></lib-select>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Registration Number</label>
-            <input type="text" class="form-control" name="username" />
-          </div>
+          <lib-input
+            title="Identification Number"
+            name="identificationNumber"
+            invalidText="Identification number is required"
+            [formGroup]="formGroup"
+          ></lib-input>
         </div>
       </div>
     </div>
-    <div class="bg-white wrapper ml-auto mr-auto mt-1" data-pg-collapsed>
+    <div class="bg-white wrapper ml-auto mr-auto mt-1">
       <div class="row mt-3">
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Address</label>
-            <input type="text" class="form-control" name="username" />
-          </div>
+          <lib-input
+            title="Address"
+            name="address"
+            invalidText="Address is required"
+            [formGroup]="formGroup"
+          ></lib-input>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputEmail1">City</label>
-            <input type="text" class="form-control" name="username" />
-          </div>
+          <lib-input
+            title="City"
+            name="city"
+            invalidText="City is required"
+            [formGroup]="formGroup"
+          ></lib-input>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputPassword1">State</label>
-            <select class="form-control custom-select">
-              <option>-- Choose one --</option>
-              <option>Anambra</option>
-              <option>Abia</option>
-            </select>
-          </div>
+          <lib-select
+            [data]="states"
+            title="State"
+            [formGroup]="formGroup"
+            name="stateId"
+            invalidText="State is required"
+          ></lib-select>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Zip </label>
-            <input type="text" class="form-control" name="username" />
-          </div>
+          <lib-input title="Zip" name="zip" [formGroup]="formGroup"></lib-input>
         </div>
       </div>
     </div>
-    <div class="bg-white wrapper ml-auto mr-auto mt-1" data-pg-collapsed>
+    <div class="bg-white wrapper ml-auto mr-auto mt-1">
       <p class="register-text text-left mt-1">
         You will need this to log into your account.
       </p>
       <div class="row mt-3">
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Password</label>
-            <input type="password" class="form-control" name="username" />
-          </div>
+          <lib-input
+            title="Password"
+            name="password"
+            type="password"
+            invalidText="Password is required"
+            [formGroup]="formGroup"
+          ></lib-input>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Confirm Password</label>
-            <input type="password" class="form-control" name="username" />
-          </div>
+          <lib-input
+            title="Confirm New Password"
+            name="confirmPassword"
+            type="password"
+            invalidText="Passwords do not match"
+            [formGroup]="formGroup"
+          ></lib-input>
         </div>
       </div>
     </div>
-    <div class="bg-white wrapper ml-auto mr-auto mt-1" data-pg-collapsed>
+    <div class="bg-white wrapper ml-auto mr-auto mt-1">
       <p class="register-text text-left mt-1">
         You will use this to authorize your transactions.
       </p>
       <div class="row mt-3">
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Pin</label>
-            <input type="text" class="form-control" name="username" />
-          </div>
+          <lib-input
+            title="Pin"
+            name="pin"
+            invalidText="Pin is required"
+            [formGroup]="formGroup"
+          ></lib-input>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Confirm Pin</label>
-            <input type="text" class="form-control" name="username" />
-          </div>
+          <lib-input
+            title="Confirm Pin"
+            name="confirmPin"
+            invalidText="Pins do not match"
+            [formGroup]="formGroup"
+          ></lib-input>
         </div>
         <div class="col-md-6">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Account Type</label>
-            <select class="form-control custom-select">
-              <option>-- Choose one --</option>
-              <option>Savings Account</option>
-              <option>Current Account</option>
-            </select>
-          </div>
+          <lib-select
+            [data]="accountTypes"
+            title="Account Type"
+            [formGroup]="formGroup"
+            name="accountType"
+            invalidText="Account type is required"
+          ></lib-select>
         </div>
       </div>
       <div class="pl-2 pr-2 ml-0 mr-0 pb-0 pt-0">
-        <button
-          type="submit"
-          class="btn login-btn text-white font-weight-bold mt-4"
-        >
-          CREATE ACCOUNT
-        </button>
+        <lib-button
+          className="login-btn btn text-white font-weight-bold mt-4 mr-auto d-block"
+          [disabled]="isBusy || formGroup.invalid"
+          [showLoader]="isBusy"
+          text="CREATE ACCOUNT"
+        ></lib-button>
         <p class="register-text mt-4 text-right">
           Already have an account? <a routerLink="/">Login</a>
         </p>

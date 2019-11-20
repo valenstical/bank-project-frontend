@@ -1,4 +1,4 @@
-<aside class="receipt-panel shadow-lg hidden" data-pg-collapsed>
+<aside class="receipt-panel shadow-lg">
   <div
     class="summary position-relative bg-red-light text-dark mt-3"
     data-pg-name="Receipt"
@@ -6,37 +6,35 @@
     <h4 class="text-sm text-uppercase font-weight-bold text-center d-block">
       Transaction Details
     </h4>
-    <small
-      class="text-sm d-block text-center font-weight-bold text-muted"
-      data-pg-collapsed
+    <small class="text-sm d-block text-center font-weight-bold text-muted"
       >(Transaction ID: <span class="spaced">TX0944584832</span>)</small
     >
     <div
       class="pg-empty-placeholder receipt-divider ml-n4 mr-n4 position-relative mb-4 mt-3 overflow-hidden"
     ></div>
-    <div class="text-sm" data-pg-collapsed>
+    <div class="text-sm">
       <span class="d-block">From</span>
       <span class="font-weight-bold">Christopher Eghe</span>
       <small class="d-inline-block font-weight-bold text-muted"
         >(Mr. Chris Eghe Bank/0040955985)</small
       >
     </div>
-    <div class="text-sm mt-3" data-pg-collapsed>
+    <div class="text-sm mt-3">
       <span class="d-block">To</span>
       <span class="font-weight-bold">James Okoro Eghe</span>
       <small class="d-inline-block font-weight-bold text-black-50"
         >(Access Bank/0040955985)</small
       >
     </div>
-    <div class="text-sm mt-3" data-pg-collapsed>
+    <div class="text-sm mt-3">
       <span class="d-block">Date</span>
       <span class="font-weight-bold">Jul 23, 2019 </span>
     </div>
-    <div class="text-sm mt-3" data-pg-collapsed>
+    <div class="text-sm mt-3">
       <span class="d-block">IFSC Code</span>
       <span class="font-weight-bold">85894 </span>
     </div>
-    <div class="text-sm mt-3" data-pg-collapsed>
+    <div class="text-sm mt-3">
       <span class="d-block">Description</span>
       <span class="font-weight-bold"
         >Money is for the shoe I promised to buy for you this christmas.
@@ -45,7 +43,7 @@
     <div
       class="pg-empty-placeholder receipt-divider mt-3 ml-n4 mr-n4 position-relative overflow-hidden mb-3"
     ></div>
-    <div data-pg-collapsed>
+    <div>
       <span class="d-block text-sm">Amount (Credit)</span>
       <span class="font-weight-bold d-block text-nowrap spaced text-success"
         >+&#8358; 777,777,777.00</span
@@ -54,10 +52,11 @@
     <div
       class="pg-empty-placeholder receipt-divider mt-3 ml-n4 mr-n4 mb-4 position-relative overflow-hidden"
     ></div>
-    <div class="pl-2 pr-2 ml-0 mr-0 pb-0 pt-0 text-left" data-pg-collapsed>
+    <div class="pl-2 pr-2 ml-0 mr-0 pb-0 pt-0 text-left">
       <button
         type="button"
         class="btn text-white font-weight-bold mt-4 btn-block login-btn btn-sec text-uppercase btn-rounded"
+        (click)="store.hideMenus()"
       >
         Close
       </button>

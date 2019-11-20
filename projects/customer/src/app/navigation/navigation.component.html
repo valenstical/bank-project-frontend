@@ -1,5 +1,9 @@
 <aside class="left-panel d-flex flex-column">
-  <button type="button" class="btn btn-back text-light" onclick="toggleMenu()">
+  <button
+    type="button"
+    class="btn btn-back text-light"
+    (click)="store.toggleMenu('nav')"
+  >
     <i class="fas fa-arrow-left"></i>
   </button>
   <div class="left-content flex-grow-1">

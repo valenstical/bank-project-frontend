@@ -17,9 +17,11 @@ body {
 .pointer {
   cursor: pointer;
 }
+
 .left-panel li a:hover {
   text-decoration: underline !important;
 }
+
 .bg-grey {
   background-color: #f5f6f7;
 }
@@ -95,25 +97,10 @@ body {
   font-weight: bold;
   text-transform: uppercase;
 }
-
-.btn-brand {
-  padding: 5px 10px;
-  border-radius: 3px;
-  color: #4d5aff;
-  font-weight: bold;
-  position: relative;
-  transition: all 300ms;
-  display: inline-block;
-  text-align: center;
-  background-color: rgba(77, 90, 255, 0.26);
+:disabled {
+  cursor: not-allowed;
+  opacity: 0.35 !important;
 }
-
-.btn-brand:hover {
-  color: #4d5aff;
-  text-decoration: none;
-  transform: translateY(-2px);
-}
-
 .header {
   color: #505050;
   padding-top: 20px;
@@ -123,6 +110,20 @@ body {
   left: 0px;
   right: 0px;
   top: 0px;
+}
+.img-uploading {
+  left: 50px;
+  top: 50px;
+}
+
+.btn-uploader {
+  right: 0px;
+  bottom: 15px;
+  padding: 0px;
+  width: 25px;
+  height: 25px;
+  border-radius: 100%;
+  opacity: 0.7;
 }
 
 .text-md {
@@ -225,13 +226,6 @@ button {
   font-size: 12px;
 }
 
-.btn-brand-bordered,
-.btn-brand-bordered:hover {
-  background: none;
-  border: 1px solid #00b09b;
-  color: #00b09b;
-}
-
 .left-panel ul li.active::before {
   opacity: 1;
   width: 4px;
@@ -315,6 +309,12 @@ button {
   letter-spacing: 2px;
 }
 
+.error-text {
+  font-size: 12px;
+  display: block;
+  color: #ff5b60;
+}
+
 .btn.btn-block {
   padding-left: 0px;
   padding-right: 0px;
@@ -368,14 +368,16 @@ button {
   font-size: 10px;
 }
 
-.transaction-badge-red {
-  background-color: rgba(218, 98, 133, 0.22);
-  color: #da6285;
-}
 .transaction-badge-green {
   background-color: rgba(2, 198, 163, 0.22);
   color: #02c6a3;
 }
+
+.transaction-badge-red {
+  background-color: rgba(218, 98, 133, 0.22);
+  color: #da6285;
+}
+
 .transaction-wrapper {
   max-width: 500px;
 }
@@ -427,4 +429,8 @@ button {
 
 .hidden-receipt .receipt-panel {
   right: 0px;
+}
+
+.summary-amount a:hover {
+  color: white !important;
 }

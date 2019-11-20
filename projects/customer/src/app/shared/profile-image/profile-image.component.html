@@ -1,0 +1,19 @@
+<div class="text-center mb-5 pb-4 mt-2">
+  <div class="d-inline-block position-relative">
+    <img class="img-thumbnail rounded-circle" width="120" [src]="src" />
+    <img
+      src="assets/images/backgrounds/loader.svg"
+      class="img-uploading position-absolute"
+      width="25"
+      *ngIf="isBusy"
+    />
+    <button
+      type="button"
+      class="btn btn-secondary position-absolute rounded-circle btn-uploader text-md"
+      title="Change image"
+      *ngIf="!isBusy"
+    >
+      <i class="fas fa-camera"></i>
+    </button>
+  </div>
+</div>

@@ -1,4 +1,8 @@
-<main class="min-vh-100 bg-grey">
+<main
+  class="min-vh-100 bg-grey"
+  [class.hidden-receipt]="store.get('menu').receipt"
+  [class.hidden-menu]="store.get('menu').nav"
+>
   <app-navigation></app-navigation>
   <aside class="right-panel">
     <section class="right-body">
@@ -8,6 +12,6 @@
       </div>
     </section>
   </aside>
-  <div class="backdrop d-lg-none" (onclick)="hideMenus()"></div>
-  <div class="receipt-backdrop" (onclick)="hideMenus()"></div>
+  <div class="backdrop d-lg-none transition" (click)="store.hideMenus()"></div>
+  <div class="receipt-backdrop transition" (click)="store.hideMenus()"></div>
 </main>
