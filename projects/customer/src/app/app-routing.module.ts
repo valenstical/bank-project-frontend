@@ -1,12 +1,15 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
+import { LoginGuard, AuthGuard } from "ng-valibrary";
 
 import { LoginComponent } from "./login/login.component";
 
 const routes: Routes = [
   {
     path: "",
-    component: LoginComponent
+    component: LoginComponent,
+    pathMatch: "full",
+    canActivate: [LoginGuard]
   },
   {
     path: "register",
@@ -16,6 +19,7 @@ const routes: Routes = [
   },
   {
     path: "portal",
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import("./portal/portal.module").then(m => m.PortalModule)
   }
@@ -26,7 +30,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes, {
       onSameUrlNavigation: "reload",
       scrollPositionRestoration: "top",
-      useHash: false
+      useHash: true
     })
   ],
   exports: [RouterModule]

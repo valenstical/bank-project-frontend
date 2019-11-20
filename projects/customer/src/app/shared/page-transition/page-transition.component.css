@@ -1,0 +1,53 @@
+@keyframes loader-start {
+  0% {
+    width: 0%;
+  }
+  5% {
+    width: 30%;
+  }
+  60% {
+    width: 60%;
+  }
+  90% {
+    width: 70%;
+  }
+
+  100% {
+    width: 75%;
+  }
+}
+@keyframes loader-end {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes loader-error {
+  from {
+    width: 70%;
+  }
+
+  to {
+    width: 75%;
+  }
+}
+
+.page-transition {
+  height: 4px;
+  z-index: 1000000;
+  position: fixed;
+  background-color: rgba(2, 198, 163, 0.9);
+  top: 0px;
+  left: -10px;
+  border-radius: 12px;
+  width: 0px;
+  animation: loader-start 20s linear infinite;
+  box-shadow: 0px 0px 0px;
+}
+
+.transition-error {
+  animation: loader-end 1s linear infinite reverse;
+}
+.transition-end {
+  animation: loader-end 300ms linear;
+}

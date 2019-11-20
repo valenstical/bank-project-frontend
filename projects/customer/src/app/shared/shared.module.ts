@@ -2,7 +2,12 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule } from "@angular/router";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { SelectModule, InputModule, ButtonModule } from "ng-valibrary";
+import {
+  SelectModule,
+  InputModule,
+  ButtonModule,
+  AlertModule
+} from "ng-valibrary";
 
 import { ProfileImageComponent } from "./profile-image/profile-image.component";
 
@@ -13,6 +18,7 @@ import { ProfileImageComponent } from "./profile-image/profile-image.component";
     RouterModule,
     SelectModule,
     InputModule,
+    AlertModule,
     ButtonModule,
     FormsModule,
     ReactiveFormsModule
@@ -21,6 +27,7 @@ import { ProfileImageComponent } from "./profile-image/profile-image.component";
     ProfileImageComponent,
     RouterModule,
     SelectModule,
+    AlertModule,
     InputModule,
     ButtonModule,
     FormsModule,

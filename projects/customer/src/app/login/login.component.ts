@@ -1,31 +1,71 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  ElementRef
+} from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { BaseComponent } from "ng-valibrary";
-import { Store } from "../services/store";
+import { BaseComponent, AuthService } from "ng-valibrary";
 import { Title } from "@angular/platform-browser";
+import { Router } from "@angular/router";
+
+import { Store } from "../services/store";
 
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html"
 })
-export class LoginComponent extends BaseComponent implements OnInit {
+export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
   public formGroup: FormGroup = this.formBuilder.group({
     accountNumber: ["", Validators.required],
     password: ["", Validators.required]
   });
 
   public bankName = this.store.get("bankName");
+  private portalUrl = "portal/statement";
+
+  @ViewChild("topElement", { static: false }) topElement: ElementRef;
 
   constructor(
     private formBuilder: FormBuilder,
     private store: Store,
-    private titleService: Title
+    private titleService: Title,
+    private authService: AuthService,
+    private router: Router
   ) {
     super();
-    titleService.setTitle(`${store.get("bankName")}|Customer Login`);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.titleService.setTitle(`${this.store.get("bankName")}|Customer Login`);
+  }
 
-  login(): void {}
+  ngOnDestroy(): void {
+    this.clearSubscription();
+  }
+
+  handleLogin() {
+    this.toggleLoaders(true);
+    this.formGroup.disable();
+    this.addSubscription(
+      this.authService.login(this.formGroup.value, "users/login").subscribe(
+        response => {
+          const { data } = response;
+          this.hideAlert = false;
+          this.showMessage(
+            "Redirecting you...",
+            "Log in successful",
+            "success"
+          );
+          this.authService.setAuthenticatedUser(data);
+          this.router.navigateByUrl(this.portalUrl);
+        },
+        error => {
+          this.handleError(error);
+          this.formGroup.enable();
+        }
+      )
+    );
+  }
 }
