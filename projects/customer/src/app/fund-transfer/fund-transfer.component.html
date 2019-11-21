@@ -2,36 +2,37 @@
   <h2 class="greeting font-weight-bold text-capitalize d-lg-block d-none mb-5">
     Fund Transfer
   </h2>
-  <form [formGroup]="formGroup" (submit)="continue()">
+  <form [formGroup]="formGroup" (submit)="processTransaction()" #topElement>
     <h4 class="text-sm text-uppercase font-weight-bold text-muted mt-5 d-block">
       From Account
     </h4>
     <div class="summary position-relative bg-brand text-white mt-0">
-      <div class="row">
-        <div class="col-6">
-          <div>
-            <h4 class="summary-title text-sm text-truncate text-capitalize">
-              {{ user.firstname }} {{ user.lastname }}
-            </h4>
-            <h5
-              class="summary-amount font-weight-bold balance text-nowrap text-sm"
-            >
-              {{ user.accountNumber }}
-            </h5>
-          </div>
-        </div>
-        <div class="col-6 text-right">
-          <div>
-            <h4 class="summary-title text-sm">Balance</h4>
-            <h5
-              class="summary-amount font-weight-bold balance text-sm text-nowrap"
-            >
-              <span [innerHTML]="store.get('currency')"></span>
-              {{ balance | number }}
-            </h5>
-          </div>
-        </div>
+      <div>
+        <h4 class="summary-title text-sm text-truncate text-capitalize">
+          {{ user.firstname }} {{ user.lastname }}
+        </h4>
+        <h5 class="summary-amount font-weight-bold balance text-nowrap text-sm">
+          {{ user.accountNumber }}
+        </h5>
       </div>
+    </div>
+    <div class="mt-4">
+      <lib-alert
+        [type]="response.type"
+        [title]="response.title"
+        [message]="response.message"
+        *ngIf="!hideAlert"
+      ></lib-alert>
+      <h6 class="mt-4" *ngIf="pendingTransactionId">
+        Click
+        <a
+          routerLink="/portal/fund-transfer/confirmation/{{
+            pendingTransactionId
+          }}"
+          >here</a
+        >
+        to complete your pending transaction.
+      </h6>
     </div>
     <!-- Transaction Type -->
     <div class="summary position-relative bg-red-light text-dark bg-white ">
@@ -39,7 +40,7 @@
         [data]="store.CONSTANTS.TRANSACTION.OPTION"
         title="Transfer Type"
         [formGroup]="formGroup"
-        name="type"
+        name="option"
         invalidText="Choose the type of transfer"
       ></lib-select>
     </div>
@@ -48,16 +49,12 @@
     </h4>
     <!-- Beneficiary Bank -->
     <div class="summary position-relative bg-red-light text-dark bg-white mt-0">
-      <lib-select
-        [data]="banks"
-        title="Bank"
+      <lib-input
+        title="Bank Name"
+        name="receiverBank"
+        invalidText="Enter the beneficiary bank name"
         [formGroup]="formGroup"
-        name="bank"
-        keyText="name"
-        keyValue="id"
-        [showLoader]="loadingBanks"
-        invalidText="Choose the beneficiary bank"
-      ></lib-select>
+      ></lib-input>
       <lib-input
         title="Account Number"
         name="receiverAccount"
@@ -65,11 +62,24 @@
         [formGroup]="formGroup"
       ></lib-input>
       <lib-input
-        title="Name"
+        title="Beneficiary Name"
         name="receiverName"
         invalidText="Enter the beneficiary name"
         [formGroup]="formGroup"
-        [readonly]="true"
+      ></lib-input>
+      <lib-input
+        title="Beneficiary Email"
+        name="receiverEmail"
+        invalidText="Enter the beneficiary email address"
+        [formGroup]="formGroup"
+        type="email"
+      ></lib-input>
+      <lib-input
+        title="Beneficiary Phone"
+        name="receiverPhone"
+        invalidText="Enter the beneficiary phone number"
+        [formGroup]="formGroup"
+        type="tel"
       ></lib-input>
     </div>
     <div class="summary position-relative bg-red-light text-dark bg-white mt-3">
@@ -85,6 +95,7 @@
         title="Description"
         name="description"
         [isInput]="false"
+        className="textarea-lg"
         [formGroup]="formGroup"
       ></lib-input>
       <lib-input

@@ -14,6 +14,11 @@ export class RequestComponent extends BaseComponent {
     this.toggleLoaders(false);
     this.formGroup.enable();
   }
+
+  handleError(e: any): void {
+    super.handleError(e);
+    this.formGroup.enable();
+  }
   makeRequest(endpoint: string, method: string): void {
     this.formGroup.disable();
     this.toggleLoaders(true);
@@ -27,7 +32,6 @@ export class RequestComponent extends BaseComponent {
           },
           error: e => {
             this.handleError(e);
-            this.formGroup.enable();
           }
         })
     );

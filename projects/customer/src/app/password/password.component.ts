@@ -17,8 +17,6 @@ import { Store } from "../services/store";
 })
 export class PasswordComponent extends PinComponent
   implements OnInit, OnDestroy {
-  @ViewChild("topElement", { static: false }) topElement: ElementRef;
-
   title = "password";
 
   constructor(

@@ -18,8 +18,6 @@ import { RequestComponent } from "../utils/request-component";
 })
 export class PinComponent extends RequestComponent
   implements OnInit, OnDestroy {
-  @ViewChild("topElement", { static: false }) topElement: ElementRef;
-
   public title = "pin";
   private user: User = this.store.get("user");
 

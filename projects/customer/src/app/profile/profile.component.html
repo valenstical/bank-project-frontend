@@ -107,13 +107,12 @@
         ></lib-input>
       </div>
       <div class="col-md-6">
-        <lib-select
-          [data]="states"
+        <lib-input
           title="State"
-          [formGroup]="formGroup"
           name="stateId"
           invalidText="State is required"
-        ></lib-select>
+          [formGroup]="formGroup"
+        ></lib-input>
       </div>
       <div class="col-md-6">
         <lib-input title="Zip" name="zip" [formGroup]="formGroup"></lib-input>
