@@ -20,8 +20,6 @@ import { formatDate } from "@angular/common";
 })
 export class ProfileComponent extends RequestComponent
   implements OnInit, OnDestroy {
-  @ViewChild("topElement", { static: false }) topElement: ElementRef;
-
   public user: User = this.authService.getAuthenticatedUser();
 
   public formGroup: FormGroup = this.formBuilder.group({

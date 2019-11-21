@@ -1,6 +1,6 @@
 # Bank project app.
 
-https://chris-bank.netlify.com/
+https://bank-project.netlify.com/
 
 Use this demo account for quick test.
 

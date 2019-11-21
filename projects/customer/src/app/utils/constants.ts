@@ -8,8 +8,8 @@ export const TRANSACTION = {
   ],
 
   OPTION: [
-    { value: 0, text: "Internal Transfer" },
-    { value: 1, text: "Inter-bank Transfer" }
+    { value: 0, text: "Inter-bank Transfer" },
+    { value: 1, text: "International Transfer" }
   ],
 
   TYPE: [
@@ -29,8 +29,8 @@ export const TRANSACTION = {
 };
 export const DEFAULT_IMAGE_URL =
   "https://res.cloudinary.com/dvnrltpfi/image/upload/v1561101906/profile/wof5e7h053kkbcpwox6q.jpg";
-export const CURRENCY = "&dollar;";
-export const BANK_NAME = "Mr. Chris Eghe Bank";
+export const CURRENCY = "&#8358;";
+export const BANK_NAME = "Zenith Utd Bank";
 
 export const IDENTIFICATION_TYPES: Pair[] = [
   { value: 0, text: "Voters Card" },

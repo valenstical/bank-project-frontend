@@ -25,8 +25,6 @@ export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
   public bankName = this.store.get("bankName");
   private portalUrl = "portal/statement";
 
-  @ViewChild("topElement", { static: false }) topElement: ElementRef;
-
   constructor(
     private formBuilder: FormBuilder,
     private store: Store,

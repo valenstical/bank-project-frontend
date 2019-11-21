@@ -19,8 +19,6 @@ import { RequestComponent } from "../utils/request-component";
   templateUrl: "./register.component.html"
 })
 export class RegisterComponent extends RequestComponent implements OnInit {
-  @ViewChild("topElement", { static: false }) topElement: ElementRef;
-
   public user: User = this.store.get("user");
   public bankName = this.store.get("bankName");
 
