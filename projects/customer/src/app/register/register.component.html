@@ -20,6 +20,7 @@
       <div class="mt-5">
         <app-profile-image
           [src]="formGroup.get('image').value"
+          (uploaded)="formGroup.get('image').setValue($event)"
         ></app-profile-image>
       </div>
       <lib-alert
