@@ -1,11 +1,13 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { HttpService, ResponseData } from "ng-valibrary";
+import { Router } from "@angular/router";
+import { formatDate } from "@angular/common";
 
 import { Store } from "../services/store";
 import { User } from "../models/user";
 import { RequestComponent } from "../utils/request-component";
-import { Router } from "@angular/router";
+import { TRANSACTION } from "../utils/constants";
 
 @Component({
   selector: "app-fund-transfer",
@@ -22,7 +24,7 @@ export class FundTransferComponent extends RequestComponent
     receiverPhone: ["", Validators.required],
     amount: ["", Validators.required],
     description: [""],
-    date: ["", Validators.required],
+    date: [formatDate(new Date(), "yyyy-MM-dd", "en"), Validators.required],
     transactionDate: [""],
     ifscCode: [""],
     pin: ["", Validators.required]
@@ -30,8 +32,8 @@ export class FundTransferComponent extends RequestComponent
 
   public banks = [];
   public loadingBanks = true;
+  public options = TRANSACTION.OPTION;
 
-  public balance: number;
   public user: User;
   public pendingTransactionId: number;
 
@@ -45,7 +47,6 @@ export class FundTransferComponent extends RequestComponent
   }
 
   ngOnInit() {
-    this.balance = this.store.get("summary").balance.total;
     this.user = this.store.get("user");
     this.store.setHeader("Fund Transfer");
   }

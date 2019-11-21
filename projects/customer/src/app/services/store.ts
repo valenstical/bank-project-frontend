@@ -1,35 +1,18 @@
 import { Injectable } from "@angular/core";
 
-import { TRANSACTION, CURRENCY, BANK_NAME } from "../utils/constants";
+import { CURRENCY, BANK_NAME, TRANSACTION_SUFFIX } from "../utils/constants";
 import { Title } from "@angular/platform-browser";
 
 @Injectable({
   providedIn: "root"
 })
 export class Store {
-  public CONSTANTS = { TRANSACTION };
-
   private initialState = {
     currency: CURRENCY,
-    summary: {
-      balance: {
-        total: 0,
-        count: 0
-      },
-      credits: {
-        total: 0,
-        count: 0
-      },
-      debits: {
-        total: 0,
-        count: 0
-      }
-    },
     bankName: BANK_NAME,
+    transactionSuffix: TRANSACTION_SUFFIX,
     header: "Statement",
-    user: {
-      image: "assets/images/icons/profile.jpg"
-    },
+    user: {},
     menu: {
       nav: false,
       receipt: false

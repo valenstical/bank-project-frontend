@@ -19,7 +19,9 @@
           Confirmation
         </h4>
         <small class="text-sm d-block text-center"
-          >(Transaction ID: <span class="spaced">{{ transaction.id }}</span
+          >(Transaction ID:
+          <span class="spaced"
+            >{{ store.get("transactionSuffix") }}{{ transaction.id }}</span
           >)</small
         >
         <div
