@@ -5,7 +5,6 @@ import { HttpService, ResponseData } from "ng-valibrary";
 import { Store } from "../services/store";
 import { User } from "../models/user";
 import { RequestComponent } from "../utils/request-component";
-import { TransactionService } from "../services/transaction.service";
 import { Router } from "@angular/router";
 
 @Component({
@@ -23,7 +22,8 @@ export class FundTransferComponent extends RequestComponent
     receiverPhone: ["", Validators.required],
     amount: ["", Validators.required],
     description: [""],
-    transactionDate: ["", Validators.required],
+    date: ["", Validators.required],
+    transactionDate: [""],
     ifscCode: [""],
     pin: ["", Validators.required]
   });
@@ -39,7 +39,6 @@ export class FundTransferComponent extends RequestComponent
     public store: Store,
     private formBuilder: FormBuilder,
     public httpService: HttpService,
-    private transactionService: TransactionService,
     private router: Router
   ) {
     super(httpService);
@@ -49,19 +48,6 @@ export class FundTransferComponent extends RequestComponent
     this.balance = this.store.get("summary").balance.total;
     this.user = this.store.get("user");
     this.store.setHeader("Fund Transfer");
-
-    this.fetchBanks();
-  }
-
-  fetchBanks(): void {
-    this.addSubscription(
-      this.transactionService.getBanks().subscribe({
-        next: (response: ResponseData) => {
-          this.banks = response.data;
-          this.loadingBanks = false;
-        }
-      })
-    );
   }
 
   ngOnDestroy() {
@@ -70,7 +56,6 @@ export class FundTransferComponent extends RequestComponent
 
   handleSuccess(response: ResponseData): void {
     super.handleSuccess(response);
-    console.log(response);
     this.router.navigateByUrl(
       `portal/fund-transfer/confirmation/${response.data.id}`
     );
@@ -85,6 +70,11 @@ export class FundTransferComponent extends RequestComponent
   }
 
   processTransaction(): void {
+    const dateControl = this.formGroup.controls.date;
+    this.formGroup.controls.transactionDate.setValue(
+      new Date(dateControl.value).getTime()
+    );
+
     this.makeRequest(`transactions/${this.user.accountNumber}`, "post");
   }
 }
