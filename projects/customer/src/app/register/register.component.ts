@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { BaseComponent } from "ng-valibrary";
+import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { HttpService, ResponseData } from "ng-valibrary";
 import { Title } from "@angular/platform-browser";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
@@ -9,14 +9,18 @@ import {
   IDENTIFICATION_TYPES,
   GENDERS,
   STATES,
-  ACCOUNT_TYPES
+  ACCOUNT_TYPES,
+  DEFAULT_IMAGE_URL
 } from "../utils/constants";
+import { RequestComponent } from "../utils/request-component";
 
 @Component({
   selector: "app-register",
   templateUrl: "./register.component.html"
 })
-export class RegisterComponent extends BaseComponent implements OnInit {
+export class RegisterComponent extends RequestComponent implements OnInit {
+  @ViewChild("topElement", { static: false }) topElement: ElementRef;
+
   public user: User = this.store.get("user");
   public bankName = this.store.get("bankName");
 
@@ -37,7 +41,8 @@ export class RegisterComponent extends BaseComponent implements OnInit {
     confirmPassword: ["", Validators.required],
     pin: ["", Validators.required],
     confirmPin: ["", Validators.required],
-    accountType: ["", Validators.required]
+    accountType: ["", Validators.required],
+    image: [DEFAULT_IMAGE_URL, Validators.required]
   });
 
   public states = STATES;
@@ -48,13 +53,40 @@ export class RegisterComponent extends BaseComponent implements OnInit {
   constructor(
     private store: Store,
     private titleService: Title,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    public httpService: HttpService
   ) {
-    super();
+    super(httpService);
     titleService.setTitle(
       `${store.get("bankName")}|Online Acccount Registration`
     );
   }
 
   ngOnInit() {}
+
+  handleSuccess(response: ResponseData): void {
+    super.handleSuccess(response);
+    this.showMessage(response.message, "Registration Successful!", "success");
+    this.formGroup.reset();
+    this.formGroup.controls.image.setValue(DEFAULT_IMAGE_URL);
+  }
+
+  registerAccount(): void {
+    const pin = this.formGroup.get("pin").value;
+    const confirmPin = this.formGroup.get("confirmPin").value;
+    const password = this.formGroup.get("password").value;
+    const confirmPassword = this.formGroup.get("confirmPassword").value;
+
+    if (pin !== confirmPin) {
+      return this.formGroup.get("confirmPin").setErrors({ notEqual: true });
+    }
+
+    if (password !== confirmPassword) {
+      return this.formGroup
+        .get("confirmPassword")
+        .setErrors({ notEqual: true });
+    }
+
+    this.makeRequest(`users`, "post");
+  }
 }

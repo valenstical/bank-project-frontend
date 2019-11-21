@@ -1,7 +1,11 @@
 <main
   class="d-flex justify-content-center align-items-center min-vh-100 login-cover position-relative "
 >
-  <form class="container-fluid mt-4 mb-4" action="statement.html">
+  <form
+    class="container-fluid mt-4 mb-4"
+    (submit)="registerAccount()"
+    #topElement
+  >
     <div class="bg-white wrapper ml-auto mr-auto">
       <div
         class="welcome d-flex align-items-center h-100 position-relative justify-content-start register-header"
@@ -15,10 +19,18 @@
       </div>
       <div class="mt-5">
         <app-profile-image
-          src="assets/images/icons/profile.jpg"
+          [src]="formGroup.get('image').value"
         ></app-profile-image>
       </div>
-
+      <lib-alert
+        [type]="response.type"
+        [title]="response.title"
+        [message]="response.message"
+        *ngIf="!hideAlert"
+      ></lib-alert>
+      <h6 class="mt-4" *ngIf="response.type === 'success'">
+        You can click <a routerLink="/">here</a> to log into your account.
+      </h6>
       <div class="row mt-5">
         <div class="col-md-6">
           <lib-input

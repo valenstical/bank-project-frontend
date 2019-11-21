@@ -27,7 +27,8 @@ export const TRANSACTION = {
   OPTION_INTERNAL: 0,
   OPTION_INTERBANK: 1
 };
-
+export const DEFAULT_IMAGE_URL =
+  "https://res.cloudinary.com/dvnrltpfi/image/upload/v1561101906/profile/wof5e7h053kkbcpwox6q.jpg";
 export const CURRENCY = "&dollar;";
 export const BANK_NAME = "Mr. Chris Eghe Bank";
 
