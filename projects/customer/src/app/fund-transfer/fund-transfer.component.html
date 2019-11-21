@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col-6">
           <div>
-            <h4 class="summary-title text-sm text-truncate">
+            <h4 class="summary-title text-sm text-truncate text-capitalize">
               {{ user.firstname }} {{ user.lastname }}
             </h4>
             <h5
@@ -53,6 +53,9 @@
         title="Bank"
         [formGroup]="formGroup"
         name="bank"
+        keyText="name"
+        keyValue="id"
+        [showLoader]="loadingBanks"
         invalidText="Choose the beneficiary bank"
       ></lib-select>
       <lib-input

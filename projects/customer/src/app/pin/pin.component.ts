@@ -5,17 +5,19 @@ import {
   ElementRef,
   OnDestroy
 } from "@angular/core";
-import { BaseComponent, HttpService, ResponseData } from "ng-valibrary";
+import { HttpService, ResponseData } from "ng-valibrary";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 import { Store } from "../services/store";
 import { User } from "../models/user";
+import { RequestComponent } from "../utils/request-component";
 
 @Component({
   selector: "app-pin",
   templateUrl: "./pin.component.html"
 })
-export class PinComponent extends BaseComponent implements OnInit, OnDestroy {
+export class PinComponent extends RequestComponent
+  implements OnInit, OnDestroy {
   @ViewChild("topElement", { static: false }) topElement: ElementRef;
 
   public title = "pin";
@@ -36,7 +38,7 @@ export class PinComponent extends BaseComponent implements OnInit, OnDestroy {
     public store: Store,
     public httpService: HttpService
   ) {
-    super();
+    super(httpService);
   }
 
   ngOnInit(): void {
@@ -48,10 +50,7 @@ export class PinComponent extends BaseComponent implements OnInit, OnDestroy {
   }
 
   handleSuccess(response: ResponseData) {
-    this.hideAlert = false;
-    this.showMessage(response.message, "", "success");
-    this.toggleLoaders(false);
-    this.formGroup.enable();
+    super.handleSuccess(response);
     this.formGroup.reset();
   }
   saveChanges(): void {
@@ -63,22 +62,9 @@ export class PinComponent extends BaseComponent implements OnInit, OnDestroy {
       this.formGroup.disable();
       this.toggleLoaders(true);
 
-      this.addSubscription(
-        this.httpService
-          .request(
-            `users/${this.title}/${this.user.accountNumber}`,
-            this.formGroup.value,
-            "patch"
-          )
-          .subscribe({
-            next: (response: ResponseData) => {
-              this.handleSuccess(response);
-            },
-            error: e => {
-              this.handleError(e);
-              this.formGroup.enable();
-            }
-          })
+      this.makeRequest(
+        `users/${this.title}/${this.user.accountNumber}`,
+        "patch"
       );
     } else {
       this.confirmPinControl.setErrors({ notEqual: true });

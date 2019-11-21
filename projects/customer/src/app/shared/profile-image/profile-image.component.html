@@ -1,17 +1,22 @@
 <div class="text-center mb-5 pb-4 mt-2">
   <div class="d-inline-block position-relative">
-    <img class="img-thumbnail rounded-circle" width="120" [src]="src" />
     <img
-      src="assets/images/backgrounds/loader.svg"
-      class="img-uploading position-absolute"
-      width="25"
-      *ngIf="isBusy"
+      class="img-thumbnail rounded-circle"
+      [src]="src"
+      style="height: 120px; width: 120px;"
     />
+    <div class="overlay" *ngIf="uploading"></div>
+
+    <div
+      class="spinner-border text-white position-absolute img-uploading"
+      *ngIf="uploading"
+    ></div>
     <button
       type="button"
       class="btn btn-secondary position-absolute rounded-circle btn-uploader text-md"
       title="Change image"
-      *ngIf="!isBusy"
+      (click)="uploadFile()"
+      *ngIf="!uploading"
     >
       <i class="fas fa-camera"></i>
     </button>
