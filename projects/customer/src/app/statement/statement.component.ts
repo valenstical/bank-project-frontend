@@ -27,6 +27,8 @@ export class StatementComponent extends BaseComponent implements OnInit {
   };
 
   selectedTransaction: Transaction;
+  selectedReceiver: any;
+
   user: User = this.store.get("user");
 
   transactions: Transaction[] = [];
@@ -75,8 +77,14 @@ export class StatementComponent extends BaseComponent implements OnInit {
     );
   }
 
-  showReceipt(transaction: Transaction): void {
-    this.selectedTransaction = transaction;
+  showReceipt(index: number): void {
+    this.selectedTransaction = this.transactions[index];
+    this.selectedReceiver = getReceiverInfo(
+      this.user,
+      this.store,
+      this.selectedTransaction
+    );
+
     this.store.toggleMenu("receipt");
   }
 }

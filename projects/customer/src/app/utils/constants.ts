@@ -30,7 +30,7 @@ export const TRANSACTION = {
 export const DEFAULT_IMAGE_URL =
   "https://res.cloudinary.com/dvnrltpfi/image/upload/v1561101906/profile/wof5e7h053kkbcpwox6q.jpg";
 export const CURRENCY = "&#8358;";
-export const BANK_NAME = "Zenith Utd Bank";
+export const BANK_NAME = "Philomena Bank Project";
 export const TRANSACTION_SUFFIX = "TX";
 
 export const IDENTIFICATION_TYPES: Pair[] = [

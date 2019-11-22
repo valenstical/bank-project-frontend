@@ -1,15 +1,18 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 import { Transaction } from "../models/transaction";
 import { Store } from "../services/store";
+import { User } from "../models/user";
 
 @Component({
   selector: "app-receipt",
   templateUrl: "./receipt.component.html"
 })
-export class ReceiptComponent implements OnInit {
+export class ReceiptComponent {
   @Input() transaction: Transaction;
+  @Input() receiver: any;
+
+  public user: User = this.store.get("user");
 
   constructor(public store: Store) {}
-  ngOnInit() {}
 }
