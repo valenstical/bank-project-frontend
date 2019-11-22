@@ -10,6 +10,7 @@ import { environment } from "../../../environments/environment";
 })
 export class ProfileImageComponent {
   @Input() src: string;
+  @Input() showLoader = false;
 
   @Output() uploaded: EventEmitter<string> = new EventEmitter();
 

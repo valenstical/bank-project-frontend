@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  OnDestroy,
-  ViewChild,
-  ElementRef
-} from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { HttpService, ResponseData, AuthService } from "ng-valibrary";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
@@ -40,6 +34,7 @@ export class ProfileComponent extends RequestComponent
   public states = STATES;
   public identificationTypes = IDENTIFICATION_TYPES;
   public genders = GENDERS;
+  public uploadingImage = false;
 
   constructor(
     private store: Store,
@@ -72,9 +67,26 @@ export class ProfileComponent extends RequestComponent
   }
 
   updateProfileImage(url: string): void {
-    this.store.get("user").image = url;
-    this.syncData({ image: url });
-    this.user.image = url;
+    this.uploadingImage = true;
+    this.addSubscription(
+      this.httpService
+        .request(
+          `users/image/${this.user.accountNumber}`,
+          { image: url },
+          "patch"
+        )
+        .subscribe({
+          next: () => {
+            this.store.get("user").image = url;
+            this.syncData({ image: url });
+            this.user.image = url;
+            this.uploadingImage = false;
+          },
+          error: () => {
+            this.uploadingImage = false;
+          }
+        })
+    );
   }
 
   editProfile() {

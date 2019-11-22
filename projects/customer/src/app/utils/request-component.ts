@@ -19,21 +19,23 @@ export class RequestComponent extends BaseComponent {
     super.handleError(e);
     this.formGroup.enable();
   }
-  makeRequest(endpoint: string, method: string): void {
+  makeRequest(
+    endpoint: string,
+    method: string,
+    param = this.formGroup.value
+  ): void {
     this.formGroup.disable();
     this.toggleLoaders(true);
 
     this.addSubscription(
-      this.httpService
-        .request(endpoint, this.formGroup.value, method)
-        .subscribe({
-          next: (response: ResponseData) => {
-            this.handleSuccess(response);
-          },
-          error: e => {
-            this.handleError(e);
-          }
-        })
+      this.httpService.request(endpoint, param, method).subscribe({
+        next: (response: ResponseData) => {
+          this.handleSuccess(response);
+        },
+        error: e => {
+          this.handleError(e);
+        }
+      })
     );
   }
 }

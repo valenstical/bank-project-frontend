@@ -6,6 +6,7 @@ import { StatementComponent } from "./statement.component";
 import { SummaryBoxModule } from "../shared/summary-box/summary-box.module";
 import { DropdownTransactionsModule } from "../shared/dropdown-transactions/dropdown-transactions.module";
 import { ReceiptModule } from "../receipt/receipt.module";
+import { LoaderModule } from "../shared/loader/loader.module";
 
 @NgModule({
   declarations: [StatementComponent],
@@ -13,6 +14,7 @@ import { ReceiptModule } from "../receipt/receipt.module";
     CommonModule,
     SummaryBoxModule,
     ReceiptModule,
+    LoaderModule,
     DropdownTransactionsModule,
     RouterModule.forChild([
       {

@@ -37,7 +37,7 @@
     <!-- Transaction Type -->
     <div class="summary position-relative bg-red-light text-dark bg-white ">
       <lib-select
-        [data]="store.CONSTANTS.TRANSACTION.OPTION"
+        [data]="options"
         title="Transfer Type"
         [formGroup]="formGroup"
         name="option"
@@ -54,6 +54,7 @@
         name="receiverBank"
         invalidText="Enter the beneficiary bank name"
         [formGroup]="formGroup"
+        className="text-capitalize"
       ></lib-input>
       <lib-input
         title="Account Number"
@@ -66,6 +67,7 @@
         name="receiverName"
         invalidText="Enter the beneficiary name"
         [formGroup]="formGroup"
+        className="text-capitalize"
       ></lib-input>
       <lib-input
         title="Beneficiary Email"
@@ -95,12 +97,12 @@
         title="Description"
         name="description"
         [isInput]="false"
-        className="textarea-lg"
+        className="textarea-lg text-sentence"
         [formGroup]="formGroup"
       ></lib-input>
       <lib-input
         title="Transaction Date"
-        name="transactionDate"
+        name="date"
         type="date"
         invalidText="Transaction date is required"
         [formGroup]="formGroup"

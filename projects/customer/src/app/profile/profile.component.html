@@ -7,6 +7,7 @@
     <app-profile-image
       [src]="user.image"
       (uploaded)="updateProfileImage($event)"
+      [showLoader]="uploadingImage"
     ></app-profile-image>
     <lib-alert
       [type]="response.type"

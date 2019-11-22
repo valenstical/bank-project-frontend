@@ -9,14 +9,14 @@
 
     <div
       class="spinner-border text-white position-absolute img-uploading"
-      *ngIf="uploading"
+      *ngIf="uploading || showLoader"
     ></div>
     <button
       type="button"
       class="btn btn-secondary position-absolute rounded-circle btn-uploader text-md"
       title="Change image"
       (click)="uploadFile()"
-      *ngIf="!uploading"
+      *ngIf="!uploading && !showLoader"
     >
       <i class="fas fa-camera"></i>
     </button>
