@@ -1,0 +1,50 @@
+<div class="transaction-wrapper mr-auto ml-auto">
+  <h2 class="greeting font-weight-bold text-capitalize d-lg-block d-none mb-5">
+    Request ATM
+  </h2>
+  <form (submit)="requestATM()">
+    <div
+      class="summary position-relative bg-red-light text-dark bg-white mt-3 pb-0 hide-close"
+      #topElement
+    >
+      <lib-alert
+        type="success"
+        message="You have requested for an ATM card, the customer service will get back to you shortly to pickup your card."
+        title="ATM Request Sent!"
+        *ngIf="isSuccess"
+      ></lib-alert>
+      <div *ngIf="!isSuccess">
+        <p class="register-text text-left mt-1">
+          You are about to apply for a new ATM Card. This request will cost you
+          a processing fee of
+          <strong
+            ><span [innerHTML]="store.get('currency')"></span>
+            1000.<br /><br />Do you want to proceed?</strong
+          >
+        </p>
+      </div>
+    </div>
+    <div class="pl-2 pr-2 ml-0 mr-0 pb-0 pt-0 text-left" *ngIf="!isSuccess">
+      <div class="row">
+        <div class="col-6 pr-1">
+          <button
+            type="button"
+            (click)="router.navigateByUrl('portal/statement')"
+            class="btn btn-brand mt-4 btn-curved pt-2 pb-2 text-sm pl-4 pr-4 btn text-white font-weight-bold btn-block login-btn btn-sec text-uppercase w-100"
+          >
+            CANCEL
+          </button>
+        </div>
+        <div class="col-6 pl-1">
+          <lib-button
+            className="login-btn btn text-white font-weight-bold mt-4"
+            [showLoader]="isBusy"
+            text="PROCEED"
+            [maxWidth]="true"
+            [disabled]="isBusy"
+          ></lib-button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

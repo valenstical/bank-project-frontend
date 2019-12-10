@@ -40,7 +40,6 @@ body {
   z-index: 20;
   padding: 80px 15px 20px;
   color: rgba(255, 255, 255, 0.67);
-  border-radius: 0px 25px 25px 0px;
 }
 
 .profile-image {
@@ -447,4 +446,20 @@ button {
 
 .summary-amount a:hover {
   color: white !important;
+}
+
+@media print {
+  .receipt-panel {
+    width: 100%;
+  }
+}
+
+.receipt-panel .close {
+  position: absolute;
+  top: -4px;
+  right: 23px;
+}
+
+.hide-close .close {
+  display: none;
 }

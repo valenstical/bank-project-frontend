@@ -54,6 +54,14 @@ import { HeaderComponent } from "../header/header.component";
               import("../pin/pin.module").then(m => m.PinModule)
           },
           {
+            path: "request-atm",
+            pathMatch: "full",
+            loadChildren: () =>
+              import("../request-atm/request-atm.module").then(
+                m => m.RequestATMModule
+              )
+          },
+          {
             path: "fund-transfer/confirmation/:transactionId",
             pathMatch: "full",
             loadChildren: () =>

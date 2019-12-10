@@ -4,6 +4,9 @@
     data-pg-name="Receipt"
     *ngIf="transaction"
   >
+    <button class="btn close" type="button" (click)="store.hideMenus()">
+      &times;
+    </button>
     <h4 class="text-sm text-uppercase font-weight-bold text-center d-block">
       Transaction Details
     </h4>
@@ -74,10 +77,10 @@
     <div class="pl-2 pr-2 ml-0 mr-0 pb-0 pt-0 text-left">
       <button
         type="button"
-        class="btn text-white font-weight-bold mt-4 btn-block login-btn btn-sec text-uppercase btn-rounded"
-        (click)="store.hideMenus()"
+        class="btn text-white d-print-none font-weight-bold mt-4 btn-block login-btn btn-sec text-uppercase btn-rounded"
+        (click)="printReceipt()"
       >
-        Close
+        Print
       </button>
     </div>
   </div>

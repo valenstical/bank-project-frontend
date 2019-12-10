@@ -23,4 +23,8 @@ export class ReceiptComponent {
     });
     return option.text;
   }
+
+  printReceipt() {
+    print();
+  }
 }
