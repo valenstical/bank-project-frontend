@@ -11,7 +11,9 @@ import { Store } from "./services/store";
 })
 export class AppComponent implements OnInit {
   constructor(private store: Store, private authService: AuthService) {
-    HttpService.BASE_URL = environment.API_URL;
+    // HttpService.BASE_URL = environment.API_URL;
+    HttpService.BASE_URL = 'https://app.luminskin.com/api/products';
+
     HttpService.LOGIN_PATH = "";
     HttpService.STORAGE_TYPE = HttpService.STORAGE.SESSION;
     HttpService.MAIN_PATH = "/portal/statement";
